@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Komunitas Resmi dari FG</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: radial-gradient(circle at center, #000428, #004e92);
+      height: 100vh;
+      position: relative;
+      font-family: 'Arial', sans-serif;
+      color: white;
+    }
+
+    /* Bintang-bintang latar belakang */
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 2s infinite;
+    }
+
+    /* Animasi bintang berkilauan */
+    @keyframes twinkle {
+      0%, 100% {
+        opacity: 0.8;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.3;
+        transform: scale(0.5);
+      }
+    }
+
+    /* Profil awal */
+    #profilAwal {
+      position: absolute;
+      top: 25%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 3px solid black;
+      border-color: whitesmoke;
+      background-color: floralwhite;
+      width: 350px;
+      height: 120px;
+      border-radius: 50px;
+      box-shadow: 5px 5px 10px rgba(0, 0, 75, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      opacity: 0;
+      transform: translate(-50%, -60%);
+      animation: fadeInUp 1s ease-out forwards;
+    }
+
+    /* Efek fade-in dari bawah */
+    @keyframes fadeInUp {
+      0% {
+        transform: translate(-50%, -60%);
+        opacity: 0;
+      }
+      100% {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+      }
+    }
+
+    #welcome {
+      font-size: 24px;
+      text-align: center;
+      font-weight: bold;
+      margin: 10px 0;
+      color: black;
+    }
+
+    #welcomes {
+      font-size: 20px;
+      text-align: center;
+      margin: 5px 0;
+      color: darkgray;
+    }
+
+    /* Kotak penyedia konten */
+#kotakPenyedia {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 800px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 75, 0.5);
+  color: white;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 0;
+  transform: translate(-50%, -60%);
+  animation: fadeInUp 1.5s ease-out forwards;
+  z-index: 100; /* Memberikan z-index lebih tinggi agar tidak tertutup */
+}
+
+    /* Menu navigasi */
+    #menu {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, 0);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 75, 0.5);
+      padding: 10px 30px;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    #menu ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+    }
+
+    #menu ul li {
+      background-color: transparent;
+      padding: 10px;
+      text-align: center;
+      color: white;
+      margin: 5px 0;
+      cursor: pointer;
+      position: relative;
+      transition: background-color 0.3s ease;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    #menu ul li:hover {
+      background-color: rgba(255, 0, 0, 0.3);
+    }
+
+    /* Garis merah di bawah hover */
+    #menu ul li::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background-color: red;
+      opacity: 0;
+      transform: scaleX(0);
+      transition: all 0.3s ease;
+    }
+
+    #menu ul li:hover::after {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+    
+    #tombolJoin,
+    #unduhWa {
+margin-top: 20px;
+      margin-bottom: 40px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      width: 50%; /* Mengatur lebar tombol agar mudah terpusat */
+      max-width: 200px;
+    }
+    
+    #tombolJoin,
+    #unduhWa:hover {
+      background-color: #45a049;
+    }
+
+    /* Footer styling */
+    footer {
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 20px;
+      text-align: center;
+      color: white;
+      font-family: 'Arial', sans-serif;
+      box-shadow: 0 -2px 10px rgba(0,0,75,0.6);
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+    }
+
+    footer div {
+      margin-bottom: 10px;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+      margin-right: 20px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div id="profilAwal">
+    <img src="" alt="">
+    <p id="welcome">
+      Selamat Datang Di Website Resmi
+    </p>
+    <p id="welcomes">
+      Kami :D
+    </p>
+  </div>
+
+  <div id="kotakPenyedia">
+    <p style="text-align: center;">
+      Halo! Ini adalah halaman web resmi dari komunitas FG :). Kalau anda melanjutkan, berarti ada menyetujui <a href="kebijakan.html">kebijakan privasi</a> dan <a href="terms.html">persyaratan pelanggan</a> kami
+    </p>
+  </div>
+
+  <!-- Menu navigasi -->
+  <div id="menu">
+    <ul>
+      <li onclick="openService('html')">Pembuka</li>
+      <li onclick="openService('website')">Data Pendiri</li>
+      <li onclick="openService('jokiPraktek')">Foto & Join komunitas</li>
+      <li onclick="openService('kontak')">Informasi Website</li>
+    </ul>
+  </div>
+
+  <!-- Membuat bintang-bintang latar belakang -->
+  <script>
+    const createStars = (numStars) => {
+      const body = document.body;
+      for (let i = 0; i < numStars; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        // Posisi acak untuk bintang
+        star.style.left = `${Math.random() * 100}vw`;
+        star.style.top = `${Math.random() * 100}vh`;
+        // Ukuran acak untuk bintang
+        const size = Math.random() * 3 + 1; // antara 1px hingga 4px
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        body.appendChild(star);
+      }
+    };
+
+    // Membuat 200 bintang latar belakang
+    createStars(200);
+  </script>
+
+  <!-- Fungsi untuk membuka layanan sesuai pilihan menu -->
+<script>
+function openService(service) {
+  let content = '';
+  switch(service) {
+    case 'html':
+      content = `<div id="kontainerAtas">SELAMAT datang! Anda telah memasuki forum resmi dari komunitas FG</div>
+                 <div id="kontainerUtama">
+                   <h3>Tambahan</h3>
+                   <p>Komunitas kami sudah berdiri sejak tahun 2024.<br>
+                   Kami sedang mencari anggota baru untuk membuat komunitas ini lebih aktif. Apakah Anda berminat? Jika iya, silakan lanjutkan.<br>
+                   Jika tidak, silakan keluar :)</p>
+                 </div>`;
+      break;
+    case 'website':
+      content = `<div id="kontainerPengumumanAdmin">
+    <big>Penjelasan admin dan pendiri</big>
+  </div>
+  <table id="tablePengumumanAdmin">
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>Nama</th>
+        <th>Posisi awal</th>
+        <th>Posisi sekarang</th>
+        <th>Status sekarang</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Kuznetsov</td>
+        <td>Owner</td>
+        <td>Owner</td>
+        <td>Ada</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Alira</td>
+        <td>Pendiri</td>
+        <td>Pendiri</td>
+        <td>Ada</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Reina</td>
+        <td>Pendiri</td>
+        <td>Pendiri</td>
+        <td>Ada</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>E VE</td>
+        <td>Pendiri</td>
+        <td>Pendiri</td>
+        <td>Ada</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Wildmac</td>
+        <td>Pendiri</td>
+        <td>Pendiri</td>
+        <td>Tidak ada</td>
+      </tr>
+    </tbody>
+  </table>`;
+      break;
+    case 'jokiPraktek':
+      content = `
+  <div id="tempatMasuk">
+    <h3>Tempat masuk komunitas</h3>
+    <p><big>Klik tombol untuk bergabung:</big></p>
+    <button id="tombolJoin" onclick="joinKomunitas()">Join Komunitas</button>
+  </div>
+  <div id="waUnduh">
+    <p style="text-align: center">
+    Silahkan unduh wa jika tidak ada
+      </p>
+    <button id="unduhWa" onclick="down()">unduh WA</button>
+  </div>`;
+      break;
+    case 'kontak':
+      content = 'Silahkan hubungi kami melalui email atau nomor telepon yang tercantum.';
+      break;
+    default:
+      content = 'Layanan tidak ditemukan.';
+  }
+
+  // Mengisi konten ke dalam kotakPenyedia
+  document.getElementById('kotakPenyedia').innerHTML = content;
+}
+</script>
+
+<script>
+  function joinKomunitas() {
+    window.open("https://chat.whatsapp.com/EFfq50aDMom7akoWVp1slQ", "_blank");
+  }
+  
+  function down() {
+    window.open("https://whatsapp.com", "_blank")
+  }
+</script>
+
+  <!-- Footer -->
+  <footer>
+    <div>&copy; 2024-2025 Family Group. Semua Hak Cipta Dilindungi.</div>
+    <div>
+      Kontak: <a href="mailto: kuze081018@gmail.com">kuze081018@gmail.com</a> | +62 812-3456-7890
+    </div>
+    <div>
+      <a href="terms.html">Persyaratan Pelanggan</a>
+      <a href="kebijakan.html">Kebijakan Privasi</a>
+    </div>
+  </footer>
+</body>
+</html>
